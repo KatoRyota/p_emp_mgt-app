@@ -17,7 +17,7 @@ import logging
 # }}}
 
 # 独自モジュールのインポート {{{
-import service.app_service from APP_ROOT_DIR
+from service.app_service import APP_ROOT_DIR
 # }}}
 
 # 前処理 {{{

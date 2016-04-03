@@ -23,7 +23,7 @@ from sqlalchemy import create_engine
 # }}}
 
 # 独自モジュールのインポート {{{
-APP_ROOT_DIR = os.path.dirname(os.path.abspath(__file__)) + '..'
+APP_ROOT_DIR = os.path.dirname(os.path.abspath(__file__)) + '/..'
 sys.path.append(APP_ROOT_DIR)
 
 from core.configuration.app_conf   import Dev, Stg, Prod

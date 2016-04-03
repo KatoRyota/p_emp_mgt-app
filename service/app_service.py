@@ -21,7 +21,7 @@ from flask import Flask, request, session, g, redirect, url_for, abort, render_t
 # }}}
 
 # 独自モジュールのインポート {{{
-APP_ROOT_DIR = os.path.dirname(os.path.abspath(__file__)) + '..'
+APP_ROOT_DIR = os.path.dirname(os.path.abspath(__file__)) + '/..'
 sys.path.append(APP_ROOT_DIR)
 #sys.path.append(APP_ROOT_DIR + '/core/configuration')
 #sys.path.append(APP_ROOT_DIR + '/core/constant')

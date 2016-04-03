@@ -44,7 +44,7 @@ class Session(object):
 
 class Form(object):
     USER_NAME = {'name' : 'user_name', 'err_msg' : u'ユーザー名が不正です。'}
-    PASSWORD  = {'name' : 'password' 'err_msg' : u'パスワードが不正です。'}
+    PASSWORD  = {'name' : 'password', 'err_msg' : u'パスワードが不正です。'}
 
 
 class Path(object):

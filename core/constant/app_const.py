@@ -17,7 +17,6 @@ import logging
 # }}}
 
 # 独自モジュールのインポート {{{
-from service.app_service import APP_ROOT_DIR
 # }}}
 
 # 前処理 {{{
@@ -48,7 +47,7 @@ class Form(object):
 
 
 class Path(object):
-    APP_ROOT_DIR = APP_ROOT_DIR
+    APP_ROOT_DIR = os.path.dirname(os.path.abspath(__file__)) + '/../..'
     CONF_DIR     = APP_ROOT_DIR + 'core/configuration'
 
 

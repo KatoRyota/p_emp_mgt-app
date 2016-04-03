@@ -48,7 +48,7 @@ class Form(object):
 
 class Path(object):
     APP_ROOT_DIR = os.path.dirname(os.path.abspath(__file__)) + '/../..'
-    CONF_DIR     = APP_ROOT_DIR + 'core/configuration'
+    CONF_DIR     = APP_ROOT_DIR + '/core/configuration'
 
 
 class EndPoint(object):
@@ -57,7 +57,7 @@ class EndPoint(object):
     INDEX  = {'uri' : '/p_emp_mgt-app/index',  'methods' : ['GET']}
 
 class Logging(object):
-    CONF_FILE      = 'logging.conf'
+    CONF_FILE      = Path.CONF_FILE + '/logging.conf'
     LOGGER_EXAMPLE = 'logExample'
 
 # 後処理 {{{

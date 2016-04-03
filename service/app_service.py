@@ -28,6 +28,8 @@ sys.path.append(APP_ROOT_DIR + '/domain')
 sys.path.append(APP_ROOT_DIR + '/model')
 sys.path.append(APP_ROOT_DIR + '/persistence')
 sys.path.append(APP_ROOT_DIR + '/service')
+sys.path.append(APP_ROOT_DIR + '/static')
+sys.path.append(APP_ROOT_DIR + '/templates')
 
 from core.constant.app_const       import View, Message, Session, Form, Path, EndPoint, Logging
 from core.util.app_util            import CommonUtil
@@ -113,7 +115,7 @@ def logout():
 
 
 @app.route(EndPoint.INDEX['uri'], methods=EndPoint.INDEX['methods'])
-@auth
+#@auth
 def index():
     '''
       社員一覧表示

@@ -51,19 +51,19 @@ class EmployeeIndex(object):
             session.commit()
             return emp_list
         except Exception as e:
-            logger.error(e)
+            self.logger.error(e)
             session.rollback()
             raise
         finally:
             session.close()
 
     def execute(self, request):
-        logger.info(u'社員一覧表示機能の処理開始')
+        self.logger.info(u'社員一覧表示機能の処理開始')
         try:
             # 社員一覧情報を取得
             return render_template(View.INDEX, data=self._get_emp_list(request)) # 社員一覧画面表示
         except Exception as e:
-            logger.error(e)
+            self.logger.error(e)
             return render_template(View.SYSTEM_ERROR, data=None) # システムエラー画面表示
 
 # 後処理 {{{

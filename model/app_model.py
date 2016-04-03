@@ -27,7 +27,7 @@ class Employee(object):
     '''
       社員情報モデル
     '''
-    def __init__(self, id_=None, employee_id, password, employee_name, affiliation_groups, managerial_positions,
+    def __init__(self, id_, employee_id, password, employee_name, affiliation_groups, managerial_positions,
                  mail_addresses, skills, sales_employees):
 
         self.id                   = id_

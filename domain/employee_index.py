@@ -22,7 +22,6 @@ from sqlalchemy.orm import scoped_session, relation, sessionmaker
 # 独自モジュールのインポート {{{
 from core.constant.app_const  import View, Message, Session, Form, Path, EndPoint, Logging
 from core.util.app_util       import CommonUtil
-from domain.employee_index    import EmployeeIndex
 from domain.mapper.app_mapper import EmployeeMapper
 # }}}
 

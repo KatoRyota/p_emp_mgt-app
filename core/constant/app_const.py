@@ -57,7 +57,7 @@ class EndPoint(object):
     INDEX  = {'uri' : '/p_emp_mgt-app/index',  'methods' : ['GET']}
 
 class Logging(object):
-    CONF_FILE      = Path.CONF_FILE + '/logging.conf'
+    CONF_FILE      = Path.CONF_DIR + '/logging.conf'
     LOGGER_EXAMPLE = 'logExample'
 
 # 後処理 {{{

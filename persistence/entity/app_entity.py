@@ -3,7 +3,6 @@
 # 説明 {{{
 '''
   DBのデータを格納するモジュール
-
 '''
 # }}}
 
@@ -59,4 +58,3 @@ class EmployeeEntity(Base, BaseEntity):
 
 # 後処理 {{{
 # }}}
-

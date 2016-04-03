@@ -27,6 +27,7 @@ APP_ROOT_DIR = os.path.dirname(os.path.abspath(__file__)) + '/..'
 sys.path.append(APP_ROOT_DIR)
 sys.path.append(APP_ROOT_DIR + '/core')
 sys.path.append(APP_ROOT_DIR + '/domain')
+sys.path.append(APP_ROOT_DIR + '/model')
 sys.path.append(APP_ROOT_DIR + '/persistence')
 sys.path.append(APP_ROOT_DIR + '/service')
 

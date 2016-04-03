@@ -17,7 +17,8 @@ import optparse
 # }}}
 
 # サードパーティーモジュールのインポート {{{
-from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash
+from flask  import Flask, request, session, g, redirect, url_for, abort, render_template, flash
+from jinja2 import FileSystemLoader
 # }}}
 
 # 独自モジュールのインポート {{{
@@ -78,6 +79,8 @@ try:
     app = Flask(__name__)
     # 設定ファイルをロード
     app.config.from_object('core.configuration.app_conf.Dev')
+    # テンプレートの読込みパスを変更
+    app.jinja_loader = FileSystemLoader(APP_ROOT_DIR + '/templates')
     # セッション管理用のシークレットキー
     app.secret_key = app.config['SECRET_KEY']
 except Exception as e:

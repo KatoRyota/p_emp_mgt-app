@@ -25,7 +25,10 @@ from sqlalchemy import create_engine
 # 独自モジュールのインポート {{{
 APP_ROOT_DIR = os.path.dirname(os.path.abspath(__file__)) + '/..'
 sys.path.append(APP_ROOT_DIR)
-sys.path.append('/home/ryota_kato/virtualenv/product_b/p_emp_mgt-app')
+sys.path.append(APP_ROOT_DIR + '/core')
+sys.path.append(APP_ROOT_DIR + '/domain')
+sys.path.append(APP_ROOT_DIR + '/persistence')
+sys.path.append(APP_ROOT_DIR + '/service')
 
 from core.configuration.app_conf   import Dev, Stg, Prod
 from core.constant.app_const       import View, Message, Session, Form, Path, EndPoint, Logging

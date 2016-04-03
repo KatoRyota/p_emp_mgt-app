@@ -48,7 +48,7 @@ class EmployeeIndex(object):
             # セッションはスレッドローカルにする
             Session = scoped_session(sessionmaker(autocommit=False, autoflush=False, bind=engine))
             session = Session()
-            emp_list = EmployeeMapper.select(session):
+            emp_list = EmployeeMapper.select(session)
             session.commit()
             return emp_list
         except Exception as e:

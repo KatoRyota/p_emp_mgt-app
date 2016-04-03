@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1>社員一覧</h1>
+
+{{url_for('static', filename='style.css')}}
+
+<!--
+    TODO : 社員一覧画面が表示できるか試してみる。
+
+    1. DB作成
+    2. データ投入
+    3. 社員一覧画面が表示できるか試してみる。
+-->
+<table>
+    <tr>
+{% for employee in data %}
+        <td>{{employee.employee_id}}</td>
+        <td>{{employee.password}}</td>
+        <td>{{employee.employee_name}}</td>
+        <td>{{employee.affiliation_groups}}</td>
+        <td>{{employee.managerial_positions}}</td>
+        <td>{{employee.mail_addresses}}</td>
+        <td>{{employee.skills}}</td>
+        <td>{{employee.sales_employees}}</td>
+{% endfor %}
+    </tr>
+</table>
+
+{% endblock %}

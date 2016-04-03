@@ -55,7 +55,6 @@ class Login(BaseDomain):
         super(Login, self).__init__()
 
     def _login(self, request):
-        # TODO
         pass
 
     def _validate(self, request):
@@ -140,7 +139,6 @@ class EmployeeIndex(BaseDomain):
         super(EmployeeIndex, self).__init__()
 
     def _get_emp_list(request):
-        # TODO
 
         session = None
         try:

@@ -3,6 +3,7 @@
 # 説明 {{{
 '''
   アプリケーションのルートディレクトリで以下のコマンドを実行するとテーブルが作成されます。
+  カレントディレクトリにsqliteのファイルが作成されます。
 
     cd ${アプリのルートディレクトリ}
     python tool/table_create.py
@@ -15,7 +16,6 @@ import os
 import json
 import logging
 import logging.config
-import ConfigParser
 # }}}
 
 # サードパーティーモジュールのインポート {{{
@@ -47,7 +47,7 @@ except Exception as e:
 #--------------------------------------------------------------------------------
 
 try:
-    # データベースのコネクションを取得
+    # データベースとのコネクションを取得
     engine = create_engine(Dev.DATA_SOURCE_DSN, echo=Dev.DB_ECHO, encoding=Dev.DB_ENCODING,
                            convert_unicode=Dev.DB_CONVERT_UNICODE)
     # データベース, テーブル作成

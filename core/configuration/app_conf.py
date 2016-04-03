@@ -1,4 +1,4 @@
-class Dev(object);
+class Dev(object):
     DATA_SOURCE_DSN    = 'sqlite:///employee.sqlite3.db'
     SECRET_KEY         = '\x00\x98\xea!\xdb\xbc\x1dp\xe4\x81)\xfeT\xccf\xca\r\x8f\x87$Y\x8aG\xbd'
     DB_ENCODING        = 'utf-8'
@@ -6,7 +6,7 @@ class Dev(object);
     DB_CONVERT_UNICODE = True
 
 
-class Stg(object);
+class Stg(object):
     DATA_SOURCE_DSN    = 'sqlite:///employee.sqlite3.db'
     SECRET_KEY         = '\x00\x98\xea!\xdb\xbc\x1dp\xe4\x81)\xfeT\xccf\xca\r\x8f\x87$Y\x8aG\xbd'
     DB_ENCODING        = 'utf-8'
@@ -14,7 +14,7 @@ class Stg(object);
     DB_CONVERT_UNICODE = True
 
 
-class Prod(object);
+class Prod(object):
     DATA_SOURCE_DSN    = 'sqlite:///employee.sqlite3.db'
     SECRET_KEY         = '\x00\x98\xea!\xdb\xbc\x1dp\xe4\x81)\xfeT\xccf\xca\r\x8f\x87$Y\x8aG\xbd'
     DB_ENCODING        = 'utf-8'

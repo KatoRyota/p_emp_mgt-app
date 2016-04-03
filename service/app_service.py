@@ -29,7 +29,6 @@ sys.path.append(APP_ROOT_DIR + '/model')
 sys.path.append(APP_ROOT_DIR + '/persistence')
 sys.path.append(APP_ROOT_DIR + '/service')
 
-from core.configuration.app_conf   import Dev, Stg, Prod
 from core.constant.app_const       import View, Message, Session, Form, Path, EndPoint, Logging
 from core.util.app_util            import CommonUtil
 from domain.employee_index         import EmployeeIndex
@@ -76,7 +75,7 @@ try:
     # アプリケーションのインスタンス
     app = Flask(__name__)
     # 設定ファイルをロード
-    app.config.from_object('Dev')
+    app.config.from_object('core.configuration.app_conf.Dev')
     # セッション管理用のシークレットキー
     app.secret_key = app.config['SECRET_KEY']
 except Exception as e:

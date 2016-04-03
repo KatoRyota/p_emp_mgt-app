@@ -47,15 +47,15 @@ class EmployeeMapper(object):
         for emp_from_db in emp_list_from_db:
             emp_list.append(
                 Employee(
-                    id_=emp_from_db.id,
-                    employee_id=emp_from_db.employee_id,
-                    password=emp_from_db.password,
-                    employee_name=emp_from_db.employee_name,
-                    affiliation_groups=emp_from_db.affiliation_groups,
-                    managerial_positions=emp_from_db.managerial_positions,
-                    mail_addresses=emp_from_db.mail_addresses,
-                    skills=emp_from_db.skills,
-                    sales_employees=emp_from_db.sales_employees
+                    emp_from_db.id,
+                    emp_from_db.employee_id,
+                    emp_from_db.password,
+                    emp_from_db.employee_name,
+                    emp_from_db.affiliation_groups,
+                    emp_from_db.managerial_positions,
+                    emp_from_db.mail_addresses,
+                    emp_from_db.skills,
+                    emp_from_db.sales_employees
                 )
             )
         return emp_list

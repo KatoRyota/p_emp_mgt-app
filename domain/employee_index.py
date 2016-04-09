@@ -38,16 +38,8 @@ class EmployeeIndex(object):
         self.app = app
 
     def _get_emp_list(self, request):
-
-        #--------------------------------------------------------------------------------
-        # TODO : 以下のエラー発生するので対応する。
-        #        2016-04-03 16:47:29,916 Thread-1 ERROR employee_index.py 54 : global name 'app' is not defined
-        #        2016-04-03 16:47:29,916 Thread-1 ERROR employee_index.py 66 : 'NoneType' object has no attribute 'close'
-        #--------------------------------------------------------------------------------
-
         try:
             # データベースの接続情報を取得。
-            #engine = create_engine(config.get('data_source', 'dsn'), echo=True, encoding='utf-8', convert_unicode=True)
             engine = create_engine(self.app.config['DATA_SOURCE_DSN'], echo=self.app.config['DB_ECHO'],
                                    encoding=self.app.config['DB_ENCODING'], convert_unicode=self.app.config['DB_CONVERT_UNICODE'])
             # セッションはスレッドローカルにする

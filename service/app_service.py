@@ -21,17 +21,26 @@ from flask  import Flask, request, session, g, redirect, url_for, abort, render_
 from jinja2 import FileSystemLoader
 # }}}
 
+# アプリのルートディレクトリをシステムパスに追加
+APP_ROOT_DIR = os.path.dirname(os.path.abspath(__file__)) + '/..'
+sys.path.append(APP_ROOT_DIR)
+
+# 独自モジュールのインポート {{{
+from core.constant.app_const import View, Message, Session, Form, Path, EndPoint, Logging
+from core.util.app_util      import CommonUtil
+from domain.employee_index   import EmployeeIndex
+# }}}
+
 # 前処理 {{{
 try:
-    # アプリのルートディレクトリをシステムパスに追加
-    APP_ROOT_DIR = os.path.dirname(os.path.abspath(__file__)) + '/..'
-    sys.path.append(APP_ROOT_DIR)
-    # 定数モジュールの読込
-    from core.constant.app_const import View, Message, Session, Form, Path, EndPoint, Logging
-
+    # 設定ファイルをロード
     logging.config.fileConfig(Logging.CONF_FILE) # ロギングライブラリ読込
     logger = logging.getLogger(Logging.LOGGER_EXAMPLE) # ロガー
+except Exception as e:
+    print(repr(e))
+    exit()
 
+try:
     # 起動パラメータのパーサー生成
     parser = optparse.OptionParser()
     parser.add_option("-t", "--host", dest="host", help=u"ホスト名を指定して下さい。 ", metavar="HOST", type="string")
@@ -78,10 +87,6 @@ except Exception as e:
     exit()
 # }}}
 
-# 独自モジュールのインポート {{{
-from core.util.app_util      import CommonUtil
-from domain.employee_index   import EmployeeIndex
-# }}}
 
 def auth(func):
     '''
@@ -118,7 +123,7 @@ def index():
     '''
       社員一覧表示
     '''
-    return EmployeeIndex().execute(request)
+    return EmployeeIndex(app).execute(request)
 
 
 # 後処理 {{{

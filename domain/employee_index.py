@@ -23,7 +23,6 @@ from sqlalchemy.orm import scoped_session, relation, sessionmaker
 from core.constant.app_const  import View, Message, Session, Form, Path, EndPoint, Logging
 from core.util.app_util       import CommonUtil
 from domain.mapper.app_mapper import EmployeeMapper
-from service.app_service      import app
 # }}}
 
 # 前処理 {{{
@@ -35,8 +34,8 @@ class EmployeeIndex(object):
     '''
     logger = logging.getLogger(Logging.LOGGER_EXAMPLE) # ロガー
 
-    def __init__(self):
-        pass
+    def __init__(self, app):
+        self.app = app
 
     def _get_emp_list(self, request):
 
@@ -46,13 +45,11 @@ class EmployeeIndex(object):
         #        2016-04-03 16:47:29,916 Thread-1 ERROR employee_index.py 66 : 'NoneType' object has no attribute 'close'
         #--------------------------------------------------------------------------------
 
-
-        session = None
         try:
             # データベースの接続情報を取得。
             #engine = create_engine(config.get('data_source', 'dsn'), echo=True, encoding='utf-8', convert_unicode=True)
-            engine = create_engine(app.config['DATA_SOURCE_DSN'], echo=app.config['DB_ECHO'],
-                                   encoding=app.config['DB_ENCODING'], convert_unicode=app.config['DB_CONVERT_UNICODE'])
+            engine = create_engine(self.app.config['DATA_SOURCE_DSN'], echo=self.app.config['DB_ECHO'],
+                                   encoding=self.app.config['DB_ENCODING'], convert_unicode=self.app.config['DB_CONVERT_UNICODE'])
             # セッションはスレッドローカルにする
             Session = scoped_session(sessionmaker(autocommit=False, autoflush=False, bind=engine))
             session = Session()

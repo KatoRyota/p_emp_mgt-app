@@ -20,7 +20,7 @@ import pprint
 # }}}
 
 # 独自モジュールのインポート {{{
-from p_emp_mgt_app.core.constant.app_const import View, Message, Session, Form, Path, EndPoint, Logging
+from core.constant.app_const import View, Message, Session, Form, Path, EndPoint, Logging
 # }}}
 
 # 前処理 {{{

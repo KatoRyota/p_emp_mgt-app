@@ -24,17 +24,10 @@ from jinja2 import FileSystemLoader
 # 独自モジュールのインポート {{{
 APP_ROOT_DIR = os.path.dirname(os.path.abspath(__file__)) + '/..'
 sys.path.append(APP_ROOT_DIR)
-#sys.path.append(APP_ROOT_DIR + '/core')
-#sys.path.append(APP_ROOT_DIR + '/domain')
-#sys.path.append(APP_ROOT_DIR + '/model')
-#sys.path.append(APP_ROOT_DIR + '/persistence')
-#sys.path.append(APP_ROOT_DIR + '/service')
-#sys.path.append(APP_ROOT_DIR + '/static')
-#sys.path.append(APP_ROOT_DIR + '/templates')
 
-from p_emp_mgt_app.core.constant.app_const import View, Message, Session, Form, Path, EndPoint, Logging
-from p_emp_mgt_app.core.util.app_util      import CommonUtil
-from p_emp_mgt_app.domain.employee_index   import EmployeeIndex
+from core.constant.app_const import View, Message, Session, Form, Path, EndPoint, Logging
+from core.util.app_util      import CommonUtil
+from domain.employee_index   import EmployeeIndex
 # }}}
 
 # 前処理 {{{

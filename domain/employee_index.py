@@ -20,11 +20,10 @@ from sqlalchemy.orm import scoped_session, relation, sessionmaker
 # }}}
 
 # 独自モジュールのインポート {{{
-from p_emp_mgt_app.core.constant.app_const  import View, Message, Session, Form, Path, EndPoint, Logging
-from p_emp_mgt_app.core.util.app_util       import CommonUtil
-from p_emp_mgt_app.service.app_service      import app
-#from p_emp_mgt_app.domain.base_domain       import BaseDomain
-from p_emp_mgt_app.domain.mapper.app_mapper import EmployeeMapper
+from core.constant.app_const  import View, Message, Session, Form, Path, EndPoint, Logging
+from core.util.app_util       import CommonUtil
+from service.app_service      import app
+from domain.mapper.app_mapper import EmployeeMapper
 # }}}
 
 # 前処理 {{{

@@ -16,11 +16,11 @@ import logging
 # }}}
 
 # 独自モジュールのインポート {{{
-from p_emp_mgt_app.core.constant.app_const       import View, Message, Session, Form, Path, EndPoint, Logging
-from p_emp_mgt_app.core.util.app_util            import CommonUtil
-from p_emp_mgt_app.service.app_service           import app
-from p_emp_mgt_app.model.app_model               import Employee
-from p_emp_mgt_app.persistence.entity.app_entity import EmployeeEntity
+from core.constant.app_const       import View, Message, Session, Form, Path, EndPoint, Logging
+from core.util.app_util            import CommonUtil
+from service.app_service           import app
+from model.app_model               import Employee
+from persistence.entity.app_entity import EmployeeEntity
 # }}}
 
 # 前処理 {{{

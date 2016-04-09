@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 
 # 説明 {{{
-'''
-'''
 # }}}
 
 # 標準モジュールのインポート {{{
@@ -18,7 +16,6 @@ import logging
 # 独自モジュールのインポート {{{
 from core.constant.app_const       import View, Message, Session, Form, Path, EndPoint, Logging
 from core.util.app_util            import CommonUtil
-from service.app_service           import app
 from model.app_model               import Employee
 from persistence.entity.app_entity import EmployeeEntity
 # }}}

@@ -21,17 +21,14 @@ from flask  import Flask, request, session, g, redirect, url_for, abort, render_
 from jinja2 import FileSystemLoader
 # }}}
 
-# 独自モジュールのインポート {{{
-APP_ROOT_DIR = os.path.dirname(os.path.abspath(__file__)) + '/..'
-sys.path.append(APP_ROOT_DIR)
-
-from core.constant.app_const import View, Message, Session, Form, Path, EndPoint, Logging
-from core.util.app_util      import CommonUtil
-from domain.employee_index   import EmployeeIndex
-# }}}
-
 # 前処理 {{{
 try:
+    # アプリのルートディレクトリをシステムパスに追加
+    APP_ROOT_DIR = os.path.dirname(os.path.abspath(__file__)) + '/..'
+    sys.path.append(APP_ROOT_DIR)
+    # 定数モジュールの読込
+    from core.constant.app_const import View, Message, Session, Form, Path, EndPoint, Logging
+
     logging.config.fileConfig(Logging.CONF_FILE) # ロギングライブラリ読込
     logger = logging.getLogger(Logging.LOGGER_EXAMPLE) # ロガー
 
@@ -71,7 +68,7 @@ try:
     # アプリケーションのインスタンス
     app = Flask(__name__)
     # 設定ファイルをロード
-    app.config.from_object('p_emp_mgt_app.core.configuration.app_conf.Dev')
+    app.config.from_object('core.configuration.app_conf.Dev')
     # テンプレートの読込みパスを変更
     app.jinja_loader = FileSystemLoader(APP_ROOT_DIR + '/templates')
     # セッション管理用のシークレットキー
@@ -79,6 +76,11 @@ try:
 except Exception as e:
     logger.exception(e)
     exit()
+# }}}
+
+# 独自モジュールのインポート {{{
+from core.util.app_util      import CommonUtil
+from domain.employee_index   import EmployeeIndex
 # }}}
 
 def auth(func):

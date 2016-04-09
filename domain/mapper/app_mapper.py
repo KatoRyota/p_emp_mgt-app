@@ -36,7 +36,7 @@ class EmployeeMapper(object):
         emp_list_from_db = session.query(EmployeeEntity).filter_by(**kwargs).all()
 
         #logger.debug(u'DBから取得したデータ : %s' % CommonUtil.get_json_for_sqlalchemy(emp_list_from_db))
-        logger.debug(u'DBから取得したデータ : %s' % ", ".join([repr(x) for x in emp_list_from_db]))
+        cls.logger.debug(u'DBから取得したデータ : %s' % ", ".join([repr(x) for x in emp_list_from_db]))
 
         emp_list = []
         for emp_from_db in emp_list_from_db:

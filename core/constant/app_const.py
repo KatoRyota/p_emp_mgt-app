@@ -2,7 +2,7 @@
 
 # 説明 {{{
 '''
-  p_emp_mgt-app (社員管理アプリ)用の定数モジュール
+  p_emp_mgt_app (社員管理アプリ)用の定数モジュール
 '''
 # }}}
 
@@ -52,9 +52,9 @@ class Path(object):
 
 
 class EndPoint(object):
-    LOGIN  = {'uri' : '/p_emp_mgt-app/login',  'methods' : ['GET']}
-    LOGOUT = {'uri' : '/p_emp_mgt-app/logout', 'methods' : ['GET']}
-    INDEX  = {'uri' : '/p_emp_mgt-app/index',  'methods' : ['GET']}
+    LOGIN  = {'uri' : '/p_emp_mgt_app/login',  'methods' : ['GET']}
+    LOGOUT = {'uri' : '/p_emp_mgt_app/logout', 'methods' : ['GET']}
+    INDEX  = {'uri' : '/p_emp_mgt_app/index',  'methods' : ['GET']}
 
 class Logging(object):
     CONF_FILE      = Path.CONF_DIR + '/logging.conf'

@@ -20,9 +20,11 @@ from sqlalchemy.orm import scoped_session, relation, sessionmaker
 # }}}
 
 # 独自モジュールのインポート {{{
-from core.constant.app_const  import View, Message, Session, Form, Path, EndPoint, Logging
-from core.util.app_util       import CommonUtil
-from domain.mapper.app_mapper import EmployeeMapper
+from p_emp_mgt_app.core.constant.app_const  import View, Message, Session, Form, Path, EndPoint, Logging
+from p_emp_mgt_app.core.util.app_util       import CommonUtil
+from p_emp_mgt_app.service.app_service      import app
+#from p_emp_mgt_app.domain.base_domain       import BaseDomain
+from p_emp_mgt_app.domain.mapper.app_mapper import EmployeeMapper
 # }}}
 
 # 前処理 {{{
@@ -59,7 +61,7 @@ class EmployeeIndex(object):
             session.commit()
             return emp_list
         except Exception as e:
-            self.logger.error(e)
+            self.logger.exception(e)
             session.rollback()
             raise
         finally:
@@ -71,7 +73,7 @@ class EmployeeIndex(object):
             # 社員一覧情報を取得
             return render_template(View.INDEX, data=self._get_emp_list(request)) # 社員一覧画面表示
         except Exception as e:
-            self.logger.error(e)
+            self.logger.exception(e)
             return render_template(View.SYSTEM_ERROR, data=None) # システムエラー画面表示
 
 # 後処理 {{{

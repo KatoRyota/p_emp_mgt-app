@@ -40,6 +40,7 @@ class Employee(object):
         self.skills               = skills
         self.sales_employees      = sales_employees
 
+
 # 後処理 {{{
 # }}}
 

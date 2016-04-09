@@ -2,7 +2,7 @@
 
 # 説明 {{{
 '''
-  p_emp_mgt-app (社員管理アプリ)へのリクエストを制御して、domain配下のソースコードに処理を委譲し、
+  p_emp_mgt_app (社員管理アプリ)へのリクエストを制御して、domain配下のソースコードに処理を委譲し、
   処理結果をリクエスト元に返します。
 '''
 # }}}
@@ -24,17 +24,17 @@ from jinja2 import FileSystemLoader
 # 独自モジュールのインポート {{{
 APP_ROOT_DIR = os.path.dirname(os.path.abspath(__file__)) + '/..'
 sys.path.append(APP_ROOT_DIR)
-sys.path.append(APP_ROOT_DIR + '/core')
-sys.path.append(APP_ROOT_DIR + '/domain')
-sys.path.append(APP_ROOT_DIR + '/model')
-sys.path.append(APP_ROOT_DIR + '/persistence')
-sys.path.append(APP_ROOT_DIR + '/service')
-sys.path.append(APP_ROOT_DIR + '/static')
-sys.path.append(APP_ROOT_DIR + '/templates')
+#sys.path.append(APP_ROOT_DIR + '/core')
+#sys.path.append(APP_ROOT_DIR + '/domain')
+#sys.path.append(APP_ROOT_DIR + '/model')
+#sys.path.append(APP_ROOT_DIR + '/persistence')
+#sys.path.append(APP_ROOT_DIR + '/service')
+#sys.path.append(APP_ROOT_DIR + '/static')
+#sys.path.append(APP_ROOT_DIR + '/templates')
 
-from core.constant.app_const       import View, Message, Session, Form, Path, EndPoint, Logging
-from core.util.app_util            import CommonUtil
-from domain.employee_index         import EmployeeIndex
+from p_emp_mgt_app.core.constant.app_const import View, Message, Session, Form, Path, EndPoint, Logging
+from p_emp_mgt_app.core.util.app_util      import CommonUtil
+from p_emp_mgt_app.domain.employee_index   import EmployeeIndex
 # }}}
 
 # 前処理 {{{
@@ -78,13 +78,13 @@ try:
     # アプリケーションのインスタンス
     app = Flask(__name__)
     # 設定ファイルをロード
-    app.config.from_object('core.configuration.app_conf.Dev')
+    app.config.from_object('p_emp_mgt_app.core.configuration.app_conf.Dev')
     # テンプレートの読込みパスを変更
     app.jinja_loader = FileSystemLoader(APP_ROOT_DIR + '/templates')
     # セッション管理用のシークレットキー
     app.secret_key = app.config['SECRET_KEY']
 except Exception as e:
-    logger.error(e)
+    logger.exception(e)
     exit()
 # }}}
 

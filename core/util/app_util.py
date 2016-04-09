@@ -2,7 +2,7 @@
 
 # 説明 {{{
 '''
-  p_emp_mgt-app (社員管理アプリ)共通の関数定義
+  p_emp_mgt_app (社員管理アプリ)共通の関数定義
 '''
 # }}}
 
@@ -20,14 +20,14 @@ import pprint
 # }}}
 
 # 独自モジュールのインポート {{{
-from core.constant.app_const import View, Message, Session, Form, Path, EndPoint, Logging
+from p_emp_mgt_app.core.constant.app_const import View, Message, Session, Form, Path, EndPoint, Logging
 # }}}
 
 # 前処理 {{{
 # }}}
 
 class CommonUtil(object):
-    logger = logging.getLogger('logExample') # ロガー
+    logger = logging.getLogger(Logging.LOGGER_EXAMPLE) # ロガー
 
     @classmethod
     def get_json_for_sqlalchemy(cls, obj_list):
@@ -54,7 +54,7 @@ class CommonUtil(object):
 
             return json.dumps(result, ensure_ascii=False, indent=4)
         except Exception as e:
-            logger.error(e)
+            logger.exception(e)
             raise
 
     @classmethod
@@ -67,7 +67,7 @@ class CommonUtil(object):
             obj_str = pp.pformat(obj)
             return re.sub(r"\\u([0-9a-f]{4})", lambda x: unichr(int("0x"+x.group(1), 16)), obj_str)
         except Exception as e:
-            logger.error(e)
+            logger.exception(e)
             raise
 
     @classmethod
@@ -81,7 +81,7 @@ class CommonUtil(object):
             conf.read(Path.APP_ROOT_DIR + 'core/configuration/app_conf.conf')
             return conf
         except Exception as e:
-            logger.error(e)
+            logger.exception(e)
             raise
 
 

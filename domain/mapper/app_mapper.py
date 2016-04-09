@@ -2,9 +2,6 @@
 
 # 説明 {{{
 '''
-  アプリケーションのルートディレクトリで以下のコマンドを実行するとテーブルが作成されます。
-
-    python persistence/app_persistence.py
 '''
 # }}}
 
@@ -19,10 +16,11 @@ import logging
 # }}}
 
 # 独自モジュールのインポート {{{
-from core.constant.app_const       import View, Message, Session, Form, Path, EndPoint, Logging
-from core.util.app_util            import CommonUtil
-from persistence.entity.app_entity import EmployeeEntity
-from model.app_model               import Employee
+from p_emp_mgt_app.core.constant.app_const       import View, Message, Session, Form, Path, EndPoint, Logging
+from p_emp_mgt_app.core.util.app_util            import CommonUtil
+from p_emp_mgt_app.service.app_service           import app
+from p_emp_mgt_app.model.app_model               import Employee
+from p_emp_mgt_app.persistence.entity.app_entity import EmployeeEntity
 # }}}
 
 # 前処理 {{{
@@ -37,7 +35,7 @@ class EmployeeMapper(object):
 
     @classmethod
     def select(cls, session, **kwargs):
-        logger.info('EmployeeMapper.select()開始')
+        cls.logger.info('EmployeeMapper.select()開始')
         emp_list_from_db = session.query(EmployeeEntity).filter_by(**kwargs).all()
 
         #logger.debug(u'DBから取得したデータ : %s' % CommonUtil.get_json_for_sqlalchemy(emp_list_from_db))
